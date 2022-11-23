@@ -10,11 +10,7 @@ const app = express()
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
-app.use(
-    cors({
-        origin: '*',
-    })
-)
+app.use(cors({ origin: 'http://localhost:3010', credentials: true }))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))

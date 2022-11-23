@@ -14,7 +14,7 @@ const PostSchema = new mongoose.Schema(
             default:
                 'https://cdn2.iconfinder.com/data/icons/files-lineal/64/file-blank-empty-default-512.png',
         },
-        viewCount: { type: Number, default: 0 },
+        view_count: { type: Number, default: 1 },
         user_name: { type: String, default: 'emlahieu' },
     },
     {

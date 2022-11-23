@@ -41,6 +41,7 @@ exports.createPost = async (req, res) => {
                 content: Joi.string().required(),
                 slug: Joi.string().required(),
                 user_name: Joi.string(),
+                view_count: Joi.number(),
             })
             .validateAsync(req.body, { stripUnknown: true })
 
