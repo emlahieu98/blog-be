@@ -11,6 +11,7 @@ const sendMetadataInIPFS = async (value) => {
         pinataContent: {
             name: value.name || '',
             description: value.description || '',
+            external_link: value.external_link || '',
             image_url: value.image_url || '',
             attributes: value.attributes || [],
         },
