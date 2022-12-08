@@ -5,6 +5,7 @@ const path = require('path')
 const connect = require('./config/db')
 const postRoute = require('./routers/post')
 const commonRoute = require('./routers/common')
+const blockchainRoute = require('./routers/blockchain')
 const bodyParser = require('body-parser')
 const app = express()
 
@@ -30,6 +31,7 @@ connect()
 //app.use('/api')
 app.use('/api/v1/posts', postRoute)
 app.use('/api/v1/common', commonRoute)
+app.use('/api/v1/blockchain', blockchainRoute)
 
 // error handler
 app.use(function (err, req, res, next) {
