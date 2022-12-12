@@ -51,7 +51,11 @@ exports.getNFTs = async (req, res) => {
         return res.status(200).json({
             status: 'success',
             message: transValidation.input_correct,
-            data: result?.result.filter((item) => item.name === 'emlahieu'),
+            data: result?.result.filter(
+                (item) =>
+                    item.token_address ==
+                    process.env.CONTRACT_ADDRESS_NFT_BSC.toLowerCase()
+            ),
         })
     } catch (error) {
         return res.status(400).json({
