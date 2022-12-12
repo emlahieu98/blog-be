@@ -16,7 +16,7 @@ exports.createNFT = async (req, res) => {
                 name: Joi.string().required(),
                 description: Joi.string().required(),
                 image_url: Joi.string().required(),
-                external_link: Joi.string(),
+                external_link: Joi.string().allow(''),
                 attributes: Joi.array().required(),
             })
             .validateAsync(req.body, { stripUnknown: true })

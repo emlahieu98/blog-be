@@ -1,12 +1,5 @@
 const CONTRACT_ABI_NFT_BSC = [
-    {
-        inputs: [
-            { internalType: 'string', name: 'name_', type: 'string' },
-            { internalType: 'string', name: 'symbol_', type: 'string' },
-        ],
-        stateMutability: 'nonpayable',
-        type: 'constructor',
-    },
+    { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
     {
         anonymous: false,
         inputs: [
@@ -117,6 +110,16 @@ const CONTRACT_ABI_NFT_BSC = [
         type: 'function',
     },
     {
+        inputs: [
+            { internalType: 'address', name: 'to', type: 'address' },
+            { internalType: 'string', name: 'tokenURI', type: 'string' },
+        ],
+        name: 'mintNFT',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+    },
+    {
         inputs: [],
         name: 'name',
         outputs: [{ internalType: 'string', name: '', type: 'string' }],
@@ -183,6 +186,13 @@ const CONTRACT_ABI_NFT_BSC = [
         inputs: [{ internalType: 'uint256', name: 'tokenId', type: 'uint256' }],
         name: 'tokenURI',
         outputs: [{ internalType: 'string', name: '', type: 'string' }],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [],
+        name: 'totalNFTS',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
         stateMutability: 'view',
         type: 'function',
     },
