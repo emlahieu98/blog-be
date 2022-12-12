@@ -1,5 +1,12 @@
 const CONTRACT_ABI_NFT_BSC = [
-    { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
+    {
+        inputs: [
+            { internalType: 'string', name: 'name_', type: 'string' },
+            { internalType: 'string', name: 'symbol_', type: 'string' },
+        ],
+        stateMutability: 'nonpayable',
+        type: 'constructor',
+    },
     {
         anonymous: false,
         inputs: [
@@ -107,16 +114,6 @@ const CONTRACT_ABI_NFT_BSC = [
         name: 'isApprovedForAll',
         outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
         stateMutability: 'view',
-        type: 'function',
-    },
-    {
-        inputs: [
-            { internalType: 'address', name: 'to', type: 'address' },
-            { internalType: 'string', name: 'tokenURI', type: 'string' },
-        ],
-        name: 'mintNFT',
-        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-        stateMutability: 'nonpayable',
         type: 'function',
     },
     {
