@@ -1,4 +1,6 @@
 const axios = require('axios')
+const Moralis = require('moralis').default
+const { EvmChain } = require('@moralisweb3/common-evm-utils')
 
 const sendMetadataInIPFS = async (value) => {
     const data = JSON.stringify({
@@ -30,4 +32,21 @@ const sendMetadataInIPFS = async (value) => {
     const url_nft = `https://gateway.pinata.cloud/ipfs/${res.data.IpfsHash}`
     return url_nft
 }
-module.exports = { sendMetadataInIPFS }
+const getNFTsByAddress = async (wallet_address) => {
+    const options = {
+        method: 'GET',
+        url: 'https://deep-index.moralis.io/api/v2/address/nft',
+        headers: {
+            accept: 'application/json',
+            'X-API-Key': process.env.MORALIS_API_KEY,
+        },
+        params: {
+            address: wallet_address,
+            chain: '0x61',
+        },
+    }
+    const result = await axios.request(options)
+
+    return result.data
+}
+module.exports = { sendMetadataInIPFS, getNFTsByAddress }
