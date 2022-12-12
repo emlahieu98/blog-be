@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const Joi = require('joi')
 const { transValidation } = require('../langs/errors/vn')
 const _ = require('lodash')
-const { getNFTsByAddress } = require('../services/blockchain')
+const {
+    getNFTsByAddress,
+    sendMetadataInIPFS,
+} = require('../services/blockchain')
 const { callSMCMintNFT } = require('../services/smart_contract')
 
 exports.createNFT = async (req, res) => {
