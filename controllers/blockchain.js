@@ -7,7 +7,7 @@ const {
     sendMetadataInIPFS,
 } = require('../services/blockchain')
 const { callSMCMintNFT } = require('../services/smart_contract')
-
+const axios = require('axios')
 exports.createNFT = async (req, res) => {
     try {
         const value = await Joi.object()
@@ -56,6 +56,28 @@ exports.getNFTs = async (req, res) => {
                     item.token_address ==
                     process.env.CONTRACT_ADDRESS_NFT_BSC.toLowerCase()
             ),
+        })
+    } catch (error) {
+        return res.status(400).json({
+            status: 'fail',
+            message: error.message,
+        })
+    }
+}
+
+exports.getMetadataNFTs = async (req, res) => {
+    try {
+        const value = await Joi.object()
+            .keys({
+                url: Joi.string(),
+            })
+            .validateAsync(req.body, { stripUnknown: true })
+
+        const result = await axios.get(value.url)
+
+        return res.status(200).json({
+            status: 'success',
+            data: result.data,
         })
     } catch (error) {
         return res.status(400).json({

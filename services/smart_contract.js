@@ -43,10 +43,6 @@ const callSMCMintNFT = async (wallet_address, tokenURI) => {
         }
 
         const contract = await connectSMC(options)
-        console.log(
-            '🚀 ~ file: smart_contract.js:46 ~ callSMCMintNFT ~ contract',
-            contract
-        )
 
         /* call sm mint nft in BSC*/
 
