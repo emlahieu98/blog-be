@@ -79,6 +79,10 @@ exports.getPostDetail = async (req, res) => {
             })
         }
 
+        await postModel.findByIdAndUpdate(post._id, {
+            view_count: post.view_count + 1,
+        })
+
         return res.status(200).json({
             status: 'success',
             data: post,
